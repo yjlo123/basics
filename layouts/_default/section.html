@@ -8,7 +8,14 @@
             <time>{{ .Date.Format "02 Jan 2006" }}</time>
           </div>
           <div class="col-sm date-time-title post">
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <a href="{{ .RelPermalink }}">{{ .Title }}
+              <div class="lang-icons">
+              {{ if in .Content "id=\"golang\" class=\"lang\"" }}<img src="/icons/golang.png" />{{ end }}
+              {{ if in .Content "id=\"python\" class=\"lang\"" }}<img src="/icons/python.png" />{{ end }}
+              {{ if in .Content "id=\"java\" class=\"lang\"" }}<img src="/icons/java.png" />{{ end }}
+              {{ if in .Content "id=\"runtime\" class=\"lang\"" }}R{{ end }}
+              </div>
+            </a>
           </div>
         </div>
       </li>
