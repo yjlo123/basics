@@ -5,6 +5,7 @@
           <a href="https://siwei.dev/" target="_blank">siwei.dev</a>
         </small>
       </footer>
+      <br/>
     </div> <!-- closes the container-fluid div -->
 
     <!-- load bootstrap JS -->
@@ -12,6 +13,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script>
+
+      (function(){
+        let first = true;
+        $(".tab-content").children(".lang").each(function () {
+          let tabId = $(this).attr("id");
+          $(".tabs").append($(`<div class="tab-btn ${first?"tab-btn-active":""}" onclick="showLang(event, '${tabId}')">${tabId}</div>`));
+          first = false;
+        });
+
+        $(".lang").slice(1).each(function() {
+          $(this).hide();
+        })
+      })();
+
       function showLang(evt, lang) {
         var i;
         var x = document.getElementsByClassName("lang");
