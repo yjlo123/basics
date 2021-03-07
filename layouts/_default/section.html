@@ -11,6 +11,9 @@
             <time>{{ .Date.Format "02 Jan 2006" }}</time>
           </div>
           <div class="col-sm date-time-title post">
+            {{ if in .Params.tags "lc_easy" }}<div class="lc-difficulty lc-easy"></div>{{ end }}
+            {{ if in .Params.tags "lc_medium" }}<div class="lc-difficulty lc-medium"></div>{{ end }}
+            {{ if in .Params.tags "lc_hard" }}<div class="lc-difficulty lc-hard"></div>{{ end }}
             <a href="{{ .RelPermalink }}">{{ .Title }}
               <div class="lang-icons">
               {{ if in .Content "id=\"golang\" class=\"lang\"" }}<img src="/icons/golang.png" />{{ end }}
